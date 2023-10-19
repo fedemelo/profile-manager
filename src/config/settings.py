@@ -4,7 +4,6 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-
 class Settings(BaseSettings):
     PROJECT_NAME: str = "Profile Manager"
     DB_NAME: str = os.getenv("DB_NAME")
