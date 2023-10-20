@@ -9,6 +9,7 @@ class Skill(Base):
     name = Column(String, primary_key=True, index=True)
     description = Column(String)
     level = Column(Float)
+
     employee_username = Column(String, ForeignKey("employees.username"))
 
     employee = relationship("Employee", back_populates="skills")

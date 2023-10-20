@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
 from src.models.employee import Employee as EmployeeModel
-from src.schemas.employee import EmployeeCreate, Employee
+from src.schemas.employee import EmployeeCreate
 from typing import List
 
 
@@ -30,7 +30,7 @@ def create_employee(db: Session, employee: EmployeeCreate):
     return db_employee
 
 def create_employees(db: Session, employees: List[EmployeeCreate]):
-    employees.map(lambda employee: create_employee(db, employee))
+    return list(map(lambda employee: create_employee(db, employee), employees))
 
 def update_employee(db: Session, username: str, employee: EmployeeCreate):
     db_employee = db.query(EmployeeModel).filter(EmployeeModel.username == username).first()
@@ -47,4 +47,3 @@ def delete_employee(db: Session, username: str):
     db_employee = get_employee(db, username)
     db.delete(db_employee)
     db.commit()
-    return db_employee
