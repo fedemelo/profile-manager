@@ -1,5 +1,6 @@
 from src.config.db_settings import Base
 from sqlalchemy import Column, String
+from sqlalchemy.orm import relationship
 
 
 class Employee(Base):
@@ -10,3 +11,5 @@ class Employee(Base):
     name = Column(String)
     company_position = Column(String)
     avatar = Column(String)
+
+    skills = relationship("Skill", back_populates="employee")
