@@ -44,11 +44,11 @@ def update_employee(employee_username: str, employee: EmployeeCreate, db: Sessio
     db_employee = service.get_employee(db, employee_username)
     if db_employee is None:
         raise HTTPException(status_code=404, detail="Employee not found")
-    return service.update_employee(db=db, employee_username=employee_username, employee=employee)
+    return service.update_employee(db=db, username=employee_username, employee=employee)
 
 @router.delete("/{employee_username}", response_model=Employee)
 def delete_employee(employee_username: str, db: Session = Depends(get_db)):
     db_employee = service.get_employee(db, employee_username)
     if db_employee is None:
         raise HTTPException(status_code=404, detail="Employee not found")
-    return service.delete_employee(db=db, employee_username=employee_username)
+    return service.delete_employee(db=db, username=employee_username)
