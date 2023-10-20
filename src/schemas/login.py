@@ -1,9 +1,6 @@
 from pydantic import BaseModel
 
-class LoginResponse(BaseModel):
-    username: str
-
-class LoginCreate(BaseModel):
+class Login(BaseModel):
     username: str
     password: str
 
