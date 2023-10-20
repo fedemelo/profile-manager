@@ -2,24 +2,16 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
-from config.settings import Settings
+from src.config.settings import Settings
 
 settings = Settings()
 
-DB_NAME = settings.DB_NAME
-DB_USER = settings.DB_USER
-DB_PASSWORD = settings.DB_PASSWORD
-DB_HOST = settings.DB_HOST
-DB_PORT = settings.DB_PORT
-
-# SQLALCHEMY_DATABASE_URL = "sqlite:///./cupifeedback.db"
-SQLALCHEMY_DATABASE_URL = f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}/{DB_NAME}"
+SQLALCHEMY_DATABASE_URL = "sqlite:///./profilemanager.db"
 
 engine = create_engine(
-    SQLALCHEMY_DATABASE_URL,
-    # connect_args={"check_same_thread": False},  # Only for SQLite
+    SQLALCHEMY_DATABASE_URL, 
+    connect_args={"check_same_thread": False}
 )
-
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 Base = declarative_base()
