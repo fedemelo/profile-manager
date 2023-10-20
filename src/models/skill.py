@@ -6,10 +6,13 @@ from sqlalchemy.orm import relationship
 class Skill(Base):
     __tablename__ = "skills"
 
-    name = Column(String, primary_key=True, index=True)
+    id = Column(String, primary_key=True, index=True)
+    name = Column(String)
     description = Column(String)
     level = Column(Float)
 
     employee_username = Column(String, ForeignKey("employees.username"))
 
     employee = relationship("Employee", back_populates="skills")
+
+    

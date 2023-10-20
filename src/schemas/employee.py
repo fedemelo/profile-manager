@@ -24,8 +24,6 @@ class EmployeeBase(BaseModel):
 
 
 class EmployeeCreate(EmployeeBase):
-    password: str
-
     model_config = {
         "json_schema_extra": {
             "examples": [
@@ -54,11 +52,13 @@ class EmployeeResponse(EmployeeBase):
                     "avatar": "https://example.com/image.png",
                     "skills": [
                         {
+                            "id": "1",
                             "name": "Python",
                             "description": "A programming language",
                             "level": 4.8,
                         },
                         {
+                            "id": "2",
                             "name": "Docker",
                             "description": "A containerization platform",
                             "level": 4.6,

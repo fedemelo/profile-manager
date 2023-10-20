@@ -29,4 +29,5 @@ class SkillCreate(SkillBase):
 
 
 class SkillResponse(SkillBase):
+    id: str
     pass

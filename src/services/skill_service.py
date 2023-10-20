@@ -2,6 +2,7 @@ from sqlalchemy.orm import Session
 from src.models.skill import Skill as SkillModel
 from src.schemas.skill import SkillCreate
 from typing import List
+from uuid import uuid4
 
 
 def get_skill(db: Session, name: str):
@@ -18,6 +19,7 @@ def get_skills(db: Session):
 
 def create_skill(db: Session, skill: SkillCreate):
     db_skill = SkillModel(
+        id=str(uuid4()),
         name=skill.name,
         description=skill.description,
         level=skill.level,
