@@ -13,7 +13,7 @@ RESTful API to manage the profile of employees in a company. The API is develope
 - pip (Python package manager)
 - virtualenv (Python virtual environment manager)
 
-### Steps to run the application
+## Steps to run the application
 
 1. Clone the repository
 You can clone the repository using the following command:
